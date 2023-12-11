@@ -1,31 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>Server-Side Calculator</title>    
-    <script defer src="scripts/axios.js"></script>
-    <script defer src="scripts/client.js" charset="utf-8"></script>
-  </head>
-  <body>
+    <title>Server-Side Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="scripts/client.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
     <h1>Server-Side Calculator</h1>
 
-    <form data-testid="calculator">
-      <input placeholder="First Number">
-      <button>+</button>
-      <button>-</button>
-      <button>*</button>
-      <button>/</button>
-      <input placeholder="Second Number">
-      <button>=</button>
-      <button>C</button>
+    <form id = "calculator" data-testid="calculator">
+      <input id="firstNumber" type="number" placeholder="First Number">
+      <input id="secondNumber" type="number" placeholder="Second Number">
+      <button type="button" id="btn"onclick="handleCalculations('+')">+</button>
+      <button type="button" id="btn"onclick="handleCalculations('-')">-</button>
+      <button type="button" id="btn"onclick="handleCalculations('*')">*</button>
+      <button type="button" id="btn"onclick="handleCalculations('/')">/</button>
+      <button type="button" id="btn" onclick="handlePostCalculations()">=</button>
+      <button type="button" id="btn" onclick="clearCalculation()">C</button>
     </form>
 
-    <section data-testid="recentResult">
-      <!-- The most recent calculation result goes here. -->
+    <section  data-testid="recentResult">
+      <table>
+        <thead >
+            <tr>
+                <th>Result:</th>
+            </tr>
+        </thead>
+        <tbody id = "recentResult"  >
+        </tbody>
+      </table>
     </section>
 
     <section data-testid="resultHistory">
-      <!-- The list of calculation results goes here. -->
+       <table>
+        <thead >
+            <tr>
+                <th>Recent Results:</th>
+            </tr>
+        </thead>
+        <tbody id = "resultHistory"  >
+        </tbody>
+      </table>
     </section>
-  </body>
+</body>
 </html>

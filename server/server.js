@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
-let PORT = process.env.PORT || 5000;
-
+let PORT = process.env.PORT || 5001;
 app.use(express.json());
 app.use(express.static('server/public'));
 
@@ -9,12 +8,73 @@ app.use(express.static('server/public'));
 // calculation objects:
 let calculations = []
 
+function performCalculation(numOne, numTwo, operator) {
+  numOne = parseFloat(numOne);
+  numTwo = parseFloat(numTwo);
+
+  if (operator === '+') {
+      return numOne + numTwo;
+  }
+  if (operator === '-') {
+      return numOne - numTwo;
+  }
+  if (operator === '*') {
+      return numOne * numTwo;
+  }
+  if (operator === '/') {
+      return  numOne / numTwo ;
+  }
+  return 'Invalid operator';
+}
 
 // Here's a wonderful place to make some routes:
 
+// POST /calculations
+app.post('/calculations', (req, res) => {
+  let { numOne, numTwo, operator } = req.body;
+  let result = performCalculation(numOne, numTwo, operator);
+  let calculation = { numOne, numTwo, operator, result };
+  calculations.push(calculation);
+  console.log(calculations);
+  res.status(201).send(calculation);
+}); 
+
 // GET /calculations
 
-// POST /calculations
+app.get('/calculations', (req, res) => {
+  console.log("test");
+  res.send(calculations);
+});
+[
+  {
+    numOne: 3,
+    numTwo: 5,
+    operator: '+',
+    result: 8
+  },
+  {
+    numOne: 11,
+    numTwo: 7,
+    operator: '-',
+    result: 4
+  },
+  {
+    numOne: 11,
+    numTwo: 7,
+    operator: '*',
+    result: 4
+  },
+  {
+    numOne: 11,
+    numTwo: 7,
+    operator: '/',
+    result: 4
+  }
+]
+app.delete('/calculations', (req, res) => {
+  calculations = [];
+  res.sendStatus(201); 
+});
 
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
