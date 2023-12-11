@@ -7,26 +7,33 @@ body {
      text-align: center;
     }
     table, th, td {
-      border: 2px solid rgb(0, 0, 0);
-  background-color: white;
+      border: transparent;
       border-collapse: collapse;
       margin-top: 55px;
-      font-size:  110%;
+      font-size:  150%;
       font-family: geneva
     }
+
 #calculator {
 
     font-size: 200% ;
     text-align: center;
 }
+#btn {
+position: relative;
+top: 8px;
+       background: orange; 
+       
+}
 input {
     height: 45px;
-    width: 112px;
+    width: 75px;
+    text-align: center;
 
   }
     h1 {
         font-family: Copperplate, Papyrus, fantasy;
-        font-size: 250%;
+        font-size: 300%;
         text-align: center;
         margin-bottom: 40px;
         
