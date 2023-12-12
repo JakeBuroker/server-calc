@@ -1,3 +1,9 @@
+// script.js
+console.log('My name is: ', process.env.MY_NAME)
+
+
+
+
 function onReady() { 
     console.log('client.js is sourced!');
     handleGETCalculations();

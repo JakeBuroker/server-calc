@@ -1,8 +1,12 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 let PORT = process.env.PORT || 5001;
-app.use(express.json());
+app.use(bodyParser.json());
 app.use(express.static('server/public'));
+const someSecret = process.env.MY_SUPER_SECRET;
+
+app.use(bodyParser.urlencoded({extended: true}));
 
 // Global variable that will contain all of the
 // calculation objects:

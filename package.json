@@ -10,7 +10,8 @@
     "server": "node server/server.js"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "heroku": "^8.7.1"
   },
   "devDependencies": {
     "@testing-library/dom": "^9.3.1",
