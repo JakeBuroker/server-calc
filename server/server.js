@@ -9,7 +9,7 @@ const someSecret = process.env.MY_SUPER_SECRET;
 app.use(bodyParser.urlencoded({extended: true}));
 
 // Global variable that will contain all of the
-// calculation objects:
+// calculation object:
 let calculations = []
 
 function performCalculation(numOne, numTwo, operator) {
