@@ -1,5 +1,4 @@
 // script.js
-console.log('My name is: ', process.env.MY_NAME)
 
 
 
@@ -18,7 +17,7 @@ function handleCalculations(operator) {
     Operator = operator;
 }
 function handlePostCalculations() {
-    event.preventDefault();
+
     let numOne = document.getElementById("firstNumber").value;
     let numTwo = document.getElementById("secondNumber").value;
 
@@ -93,6 +92,7 @@ function clearCalculation() {
         });
 }
 clearCalculation()
+
 
 
 
